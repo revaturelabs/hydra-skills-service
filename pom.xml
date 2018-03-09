@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.revature.caliber</groupId>
-	<artifactId>CategoryRepositoryService</artifactId>
+	<groupId>com.revature.hydra.skills</groupId>
+	<artifactId>SkillsService</artifactId>
 	<version>1</version>
 	<packaging>jar</packaging>
 
-	<name>CategoryRepositoryService</name>
-	<description>Microservice hosting the Caliber Category database table</description>
+	<name>SkillsService</name>
+	<description>Microservice hosting the Hydra Skills database table</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
