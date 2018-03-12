@@ -28,7 +28,7 @@ public class CategoryRepositoryMessagingService {
 	 * @param message The message received from the messaging queue
 	 * @return The simple category returned by the request dispatcher
 	 */
-	@RabbitListener(queues = "revature.hydra.repos.category")
+	@RabbitListener(queues = "revature.hydra.repos.skills")
 	public SimpleCategory receiveSingleSimpleCategoryRequest(String message) {
 		JsonParser parser = new JsonParser();
 		JsonElement element = parser.parse(message);
@@ -43,7 +43,7 @@ public class CategoryRepositoryMessagingService {
 	 * @param message The message received from the messaging queue
 	 * @return The list of simple categories returned by the request dispatcher
 	 */
-	@RabbitListener(queues = "revature.hydra.repos.category.list")
+	@RabbitListener(queues = "revature.hydra.repos.skills.list")
 	public List<SimpleCategory> receiveListSimpleCategoryRequest(String message) {
 		JsonParser parser = new JsonParser();
 		JsonElement element = parser.parse(message);
