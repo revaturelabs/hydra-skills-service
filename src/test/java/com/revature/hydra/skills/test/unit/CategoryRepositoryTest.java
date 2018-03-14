@@ -24,20 +24,20 @@ public class CategoryRepositoryTest {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	@Autowired
-    private TestEntityManager entityManager;
+	private TestEntityManager entityManager;
 	@Autowired
 	protected JdbcTemplate jdbcTemplate;
-	
+
 	private static final Logger log = Logger.getLogger(CategoryRepositoryTest.class);
-	
+
 	private static final String CATEGORY_COUNT = "select count(category_id) from caliber_category";
 	private static final String ACTIVE_CATEGORY = "select count(category_id) from caliber_category WHERE IS_ACTIVE = 1;";
-	
+
 	@Test
 	public void test() {
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void findOne() {
 		log.info("Testing findOne method from CategoryDAO");
@@ -46,22 +46,22 @@ public class CategoryRepositoryTest {
 		assertTrue(categoryRepository.findOne(1) instanceof SimpleCategory);
 		assertEquals(categoryRepository.findOne(1).toString(), "Java");
 	}
-	
+
 	@Test
 	public void testAll() {
 		int expected = categoryRepository.findAll().size();
 		int actual = jdbcTemplate.queryForObject(CATEGORY_COUNT, Integer.class);
 		Assert.assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void testAllActive() {
 		log.info("Testing findAllActive from CategoryDAO");
 		int expected = categoryRepository.findByActiveOrderByCategoryIdAsc(true).size();
-		int actual = jdbcTemplate.queryForObject(ACTIVE_CATEGORY,Integer.class);
+		int actual = jdbcTemplate.queryForObject(ACTIVE_CATEGORY, Integer.class);
 		assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void update() {
 		log.info("Testing update from CategoryDAO");
@@ -71,7 +71,7 @@ public class CategoryRepositoryTest {
 		categoryRepository.save(myCat);
 		assertEquals(skillName, myCat.getSkillCategory());
 	}
-	
+
 	@Test
 	public void save() {
 		log.info("Testing save method from CategoryDAO");
@@ -81,10 +81,11 @@ public class CategoryRepositoryTest {
 		Long after = jdbcTemplate.queryForObject(CATEGORY_COUNT, Long.class);
 		assertEquals(++before, after);
 	}
-	
+
 	@Test
 	public void delete() {
 		log.info("Testing delete method from CategoryDAO");
 		categoryRepository.delete(categoryRepository.findOne(1));
 	}
+
 }
