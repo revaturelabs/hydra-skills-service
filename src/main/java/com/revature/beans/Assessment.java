@@ -13,7 +13,7 @@ public class Assessment implements Serializable {
 	private Integer rawScore;
 	private AssessmentType type;
 	private Short week;
-	private Category category;
+	private Skill category;
 	private Set<Grade> grades = new HashSet<>();
 
 	public Assessment() {
@@ -21,7 +21,7 @@ public class Assessment implements Serializable {
 	}
 
 	public Assessment(String title, Batch batch, Integer rawScore, AssessmentType type, Integer week,
-			Category category) {
+			Skill category) {
 		this();
 		this.title = title;
 		this.batch = batch;
@@ -49,7 +49,7 @@ public class Assessment implements Serializable {
 	}
 
 	public String getTitle() {
-		return this.category.getSkillCategory() + " " + this.type.name();
+		return this.category.getSkillName() + " " + this.type.name();
 	}
 
 	public void setTitle(String title) {
@@ -88,11 +88,11 @@ public class Assessment implements Serializable {
 		this.week = week;
 	}
 
-	public Category getCategory() {
+	public Skill getCategory() {
 		return category;
 	}
 
-	public void setCategory(Category category) {
+	public void setCategory(Skill category) {
 		this.category = category;
 	}
 

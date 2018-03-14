@@ -3,11 +3,11 @@ package com.revature.hydra.skills.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CategoryCompositionMessagingService {
+public class SkillCompositionMessagingService {
 
 	/**
-	 * Category has a set of Assessments in old bean but not in DB, Assessment has a
-	 * category. Messaging requests are not needed for category at this time.
+	 * Skill has a set of Assessments in old bean but not in DB, Assessment has a
+	 * skill. Messaging requests are not needed for skill at this time.
 	 * 
 	 */
 	// private static final String SINGLE_PANEL_ROUTING_KEY = "7c6tMqRRPpZ8Z7xh";
@@ -15,10 +15,10 @@ public class CategoryCompositionMessagingService {
 
 	/*
 	 * public List<SimpleAssessment> sendSingleSimpleAssessmentRequest(Integer
-	 * categoryId) { JsonObject panelRequest = new JsonObject();
+	 * skillId) { JsonObject panelRequest = new JsonObject();
 	 * 
 	 * panelRequest.addProperty("methodName", "findOne");
-	 * panelRequest.addProperty("categoryId", categoryId);
+	 * panelRequest.addProperty("skillId", skillId);
 	 * 
 	 * return (SimpleAssessment)
 	 * rabbitTemplate.convertSendAndReceive(RABBIT_REPO_EXCHANGE,

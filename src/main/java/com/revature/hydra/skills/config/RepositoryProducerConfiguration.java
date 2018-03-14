@@ -6,7 +6,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.revature.hydra.skills.service.CategoryCompositionService;
+import com.revature.hydra.skills.service.SkillCompositionService;
 
 @Configuration
 public class RepositoryProducerConfiguration {
@@ -17,8 +17,8 @@ public class RepositoryProducerConfiguration {
 	}
 
 	@Bean
-	public CategoryCompositionService panelFeedbackCompositionService() {
-		return new CategoryCompositionService();
+	public SkillCompositionService panelFeedbackCompositionService() {
+		return new SkillCompositionService();
 	}
 
 }

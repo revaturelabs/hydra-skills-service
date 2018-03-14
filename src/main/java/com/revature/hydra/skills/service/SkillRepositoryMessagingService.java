@@ -9,46 +9,46 @@ import org.springframework.stereotype.Service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.revature.beans.SimpleCategory;
+import com.revature.beans.SimpleSkill;
 
 @Service
-public class CategoryRepositoryMessagingService {
+public class SkillRepositoryMessagingService {
 
 	@Autowired
-	private CategoryRepositoryRequestDispatcher categoryRepositoryRequestDispatcher;
+	private SkillRepositoryRequestDispatcher skillRepositoryRequestDispatcher;
 
 	/**
-	 * Receives a message from the single SimpleCategory RabbitMQ queue, parses the
+	 * Receives a message from the single SimpleSkill RabbitMQ queue, parses the
 	 * message string as a JsonObject, and passes it to the request dispatcher.
 	 * 
 	 * @param message
 	 *            The message received from the messaging queue
-	 * @return The simple category returned by the request dispatcher
+	 * @return The simple skill returned by the request dispatcher
 	 */
 	@RabbitListener(queues = "revature.hydra.repos.skills")
-	public SimpleCategory receiveSingleSimpleCategoryRequest(String message) {
+	public SimpleSkill receiveSingleSimpleSkillRequest(String message) {
 		JsonParser parser = new JsonParser();
 		JsonElement element = parser.parse(message);
 		JsonObject request = element.getAsJsonObject();
 
-		return categoryRepositoryRequestDispatcher.processSingleSimpleCategoryRequest(request);
+		return skillRepositoryRequestDispatcher.processSingleSimpleSkillRequest(request);
 	}
 
 	/**
-	 * Receives a message from the list SimpleCategories RabbitMQ queue, parses the
+	 * Receives a message from the list SimpleSkills RabbitMQ queue, parses the
 	 * message string as a JsonObject, and passes it to the request dispatcher.
 	 * 
 	 * @param message
 	 *            The message received from the messaging queue
-	 * @return The list of simple categories returned by the request dispatcher
+	 * @return The list of simple skills returned by the request dispatcher
 	 */
 	@RabbitListener(queues = "revature.hydra.repos.skills.list")
-	public List<SimpleCategory> receiveListSimpleCategoryRequest(String message) {
+	public List<SimpleSkill> receiveListSimpleSkillRequest(String message) {
 		JsonParser parser = new JsonParser();
 		JsonElement element = parser.parse(message);
 		JsonObject request = element.getAsJsonObject();
 
-		return categoryRepositoryRequestDispatcher.processListSimpleCategoryRequest(request);
+		return skillRepositoryRequestDispatcher.processListSimpleSkillRequest(request);
 	}
 
 }

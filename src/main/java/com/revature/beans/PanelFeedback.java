@@ -6,7 +6,7 @@ public class PanelFeedback  implements Serializable {
 	private static final long serialVersionUID = -7997716749941674836L;
 	
 	private Long panelFeedbackId;
-	private Category technology;
+	private Skill technology;
 	private PanelStatus status;
 	private Integer result;
 	private String comment;
@@ -32,11 +32,11 @@ public class PanelFeedback  implements Serializable {
 		this.panelFeedbackId = id;
 	}
 
-	public Category getTechnology() {
+	public Skill getTechnology() {
 		return technology;
 	}
 
-	public void setTechnology(Category technology) {
+	public void setTechnology(Skill technology) {
 		this.technology = technology;
 	}
 
