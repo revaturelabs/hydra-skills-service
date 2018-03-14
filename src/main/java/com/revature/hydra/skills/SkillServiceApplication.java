@@ -16,10 +16,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableEurekaClient
 @EnableSwagger2
 @EntityScan("com.revature.beans")
-public class CategoryRepositoryServiceApplication {
+public class SkillServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CategoryRepositoryServiceApplication.class, args);
+		SpringApplication.run(SkillServiceApplication.class, args);
 	}
 
 	@Bean

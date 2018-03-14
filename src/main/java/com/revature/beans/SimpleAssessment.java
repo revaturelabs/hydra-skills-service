@@ -40,7 +40,7 @@ public class SimpleAssessment implements Serializable {
 		this.type = assessment.getType();
 		this.week = assessment.getWeek();
 		this.batchId = assessment.getBatch().getBatchId();
-		this.categoryId = assessment.getCategory().getCategoryId();
+		this.categoryId = assessment.getCategory().getSkillId();
 	}
 
 	public Long getAssessmentId() {

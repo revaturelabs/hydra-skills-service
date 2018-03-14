@@ -16,7 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CategoryRepositoryServiceApplicationTests {
+public class SkillServiceApplicationTests {
 	@Autowired
 	private WebApplicationContext context;
 	
@@ -31,8 +31,8 @@ public class CategoryRepositoryServiceApplicationTests {
 	}
 	
 	@Test
-	public void returnActiveCategories() throws Exception {
-		ResultActions ra = mockmvc.perform(get("http://localhost:8081/category/all"));
+	public void returnActiveSkills() throws Exception {
+		ResultActions ra = mockmvc.perform(get("http://localhost:8081/skill/all"));
 		//MockHttpServletResponse 
 	}
 
