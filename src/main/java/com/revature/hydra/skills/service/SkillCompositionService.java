@@ -60,6 +60,13 @@ public class SkillCompositionService {
 		return result;
 	}
 
+	public List<Skill> findAllById(List<Integer> ids) {
+		List<SimpleSkill> basis = skillRepository.findAll((Iterable<Integer>) ids);
+		List<Skill> result = composeListOfSkill(basis);
+
+		return result;
+	}
+
 	/**
 	 * . Given a Skill create a simple version and saves it
 	 *
