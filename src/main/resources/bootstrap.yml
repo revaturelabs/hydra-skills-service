@@ -1,6 +1,6 @@
 spring:
   application:
-    name: category
+    name: skills
   cloud:
     config:
       uri: http://localhost:8888
