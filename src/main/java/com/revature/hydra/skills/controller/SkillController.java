@@ -101,7 +101,7 @@ public class SkillController {
 	// CREATE
 	// creating new curriculum object from information passed from curriculum data
 	// transfer object
-	@RequestMapping(value = "/api/v2/skill",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/api/v2/skill", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "Create a skill", response = ResponseEntity.class)
 	@ApiResponses({ @ApiResponse(code = 200, message = "Successfully created Skill information"),
 			@ApiResponse(code = 400, message = "Bad Request, the information recieved maybe invalid"),

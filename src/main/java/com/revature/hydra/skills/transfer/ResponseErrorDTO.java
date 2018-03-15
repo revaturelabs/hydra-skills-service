@@ -12,12 +12,12 @@ public class ResponseErrorDTO {
 	public ResponseErrorDTO() {
 		super();
 	}
-	
+
 	public ResponseErrorDTO(String message) {
 		super();
 		this.errorMessage = message;
 	}
-	
+
 	public String getErrorMessage() {
 		return errorMessage;
 	}
@@ -25,5 +25,5 @@ public class ResponseErrorDTO {
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
-	
+
 }
