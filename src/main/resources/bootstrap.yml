@@ -2,5 +2,25 @@ spring:
   application:
     name: skills
   cloud:
-    config:
-      uri: http://localhost:8888
+    services:
+      registrationMethod: direct
+
+eureka:
+  client:
+    register-with-eureka: true
+    leaseRenewalIntervalInSeconds: 10
+    healthcheck:       
+      enabled: true
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 20
+
+security:
+  basic:
+    enabled: false
+
+server:
+  servlet:
+    contextPath: /v0
+
+
