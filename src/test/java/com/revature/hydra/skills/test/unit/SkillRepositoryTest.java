@@ -14,7 +14,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.revature.beans.SimpleSkill;
+import com.revature.hydra.skills.beans.SimpleSkill;
 import com.revature.hydra.skills.data.SkillRepository;
 
 @RunWith(SpringRunner.class)
