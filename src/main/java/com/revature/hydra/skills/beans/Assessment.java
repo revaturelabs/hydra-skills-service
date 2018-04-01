@@ -1,4 +1,4 @@
-package com.revature.beans;
+package com.revature.hydra.skills.beans;
 
 import java.io.Serializable;
 import java.util.HashSet;

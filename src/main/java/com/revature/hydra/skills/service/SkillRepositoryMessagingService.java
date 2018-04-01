@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.revature.beans.SimpleSkill;
+import com.revature.hydra.skills.beans.SimpleSkill;
 
 @Service
 public class SkillRepositoryMessagingService {

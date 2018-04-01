@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.revature.beans.Skill;
-import com.revature.beans.SimpleSkill;
+import com.revature.hydra.skills.beans.Skill;
+import com.revature.hydra.skills.beans.SimpleSkill;
 import com.revature.hydra.skills.data.SkillRepository;
 
+@Service
 public class SkillCompositionService {
 	@Autowired
 	private SkillRepository skillRepository;

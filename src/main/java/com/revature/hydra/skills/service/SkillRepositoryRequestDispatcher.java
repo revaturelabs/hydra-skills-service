@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.JsonObject;
-import com.revature.beans.SimpleSkill;
+import com.revature.hydra.skills.beans.SimpleSkill;
 import com.revature.hydra.skills.data.SkillRepository;
 
 /**

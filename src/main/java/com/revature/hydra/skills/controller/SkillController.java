@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.beans.Skill;
+import com.revature.hydra.skills.beans.Skill;
 import com.revature.hydra.skills.service.SkillCompositionService;
 import com.revature.hydra.skills.transfer.ResponseErrorDTO;
 
