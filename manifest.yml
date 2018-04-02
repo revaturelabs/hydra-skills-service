@@ -1,0 +1,5 @@
+---
+applications:
+- name: skills
+  path: ./target/skills-0.0.1.jar
+  no-route: true
