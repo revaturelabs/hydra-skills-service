@@ -5,7 +5,7 @@ addons:
     token:
       secure: i/FRmvFzWlx2BqHCckFd1kpIt/v7u3XkE1zSNcMLkcrq3lsQc2YLvsel64rhbL3jrOgCliAvGQrcvoA3vTGj/NKsILRkmQIMknhQG0fq5WZ9EWHrdOS+ztDJiiQiDR0Yy2IfE15JOOzjnUF8hnEV5qaSZ5AJ6WD66mzQ/7Kmyn9AaeQXCEZup9JsEQMesr36HzcHNcYECnd+fBKVw24IClJDVDqVhrXeEdM5J7wWXfGBfYA72A/2Www+4P10RW/BPELmQTTWoTO4gICEp/lEEq9X16LYYfyhHEmMFe8AUJ9ZVw0VmCyIWdeAwT54f3bybhXpTSRj9r71xwSaabPlSegqwczAvb/pZMvxLDyv/G0odZlR8kOMJhwdc+Og3CzEDbBQh7oJPjySGmJl/YUsx4LjhHfuE6oRI41P+Ud36LswaqUZB1xsGHR9TUs5UsdWvgWakXM6nupRKFOmIXXqdnlERWGt2VVDNFb3QqR4rL5OW4Mf/TOyVnB0UeTbp1GqkyG7sN/QSv6FlnapqyFDK0oRPHUN5Rsa6LQ7UwjmqCmKKm8DjY9iOGfZ53LfvOoMAGJQdm5dXC925Qy+NI3UTR85zzJ+2Tnq/C7nz8gdxNictVu6VZzygC43AdUBRJ+ANScc4hBOzOUxVGX/wpi/a/m0gBp+m5FecbjGFjVSXhI=
 script:
-- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.host.url=https://sonarcloud.io
 deploy:
   skip_cleanup: true
   provider: cloudfoundry
