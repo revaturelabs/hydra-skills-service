@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import com.revature.hydra.skills.SkillServiceApplication;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,20 +12,24 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.revature.hydra.skills.beans.SimpleSkill;
 import com.revature.hydra.skills.data.SkillRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = SkillServiceApplication.class)
+@AutoConfigureMockMvc
+@ActiveProfiles("test")
 public class SkillRepositoryTest {
 
 	@Autowired
 	private SkillRepository skillRepository;
-	@Autowired
-	private TestEntityManager entityManager;
 	@Autowired
 	protected JdbcTemplate jdbcTemplate;
 
@@ -33,28 +38,23 @@ public class SkillRepositoryTest {
 	private static final String SKILL_COUNT = "select count(skill_id) from hydra_skill";
 	private static final String ACTIVE_SKILL = "select count(skill_id) from hydra_skill WHERE IS_ACTIVE = 1;";
 
-	@Test
-	public void test() {
-		assertTrue(true);
-	}
-
-	@Test
+	@Test @Transactional
 	public void findOne() {
 		log.info("Testing findOne method from SkillDAO");
 		SimpleSkill myCat = skillRepository.findOne(1);
 		assertNotNull(myCat);
-		assertTrue(skillRepository.findOne(1) instanceof SimpleSkill);
+		assertTrue(skillRepository.findOne(1) != null);
 		assertEquals(skillRepository.findOne(1).toString(), "Java");
 	}
 
-	@Test
+	@Test @Transactional
 	public void testAll() {
 		int expected = skillRepository.findAll().size();
 		int actual = jdbcTemplate.queryForObject(SKILL_COUNT, Integer.class);
 		Assert.assertEquals(expected, actual);
 	}
 
-	@Test
+	@Test @Transactional
 	public void testAllActive() {
 		log.info("Testing findAllActive from SkillDAO");
 		int expected = skillRepository.findByActiveOrderBySkillIdAsc(true).size();
@@ -62,7 +62,7 @@ public class SkillRepositoryTest {
 		assertEquals(expected, actual);
 	}
 
-	@Test
+	@Test @Transactional
 	public void update() {
 		log.info("Testing update from SkillDAO");
 		String skillName = "Revature Pro";
@@ -72,7 +72,7 @@ public class SkillRepositoryTest {
 		assertEquals(skillName, myCat.getSkillName());
 	}
 
-	@Test
+	@Test @Transactional
 	public void save() {
 		log.info("Testing save method from SkillDAO");
 		SimpleSkill newCat = new SimpleSkill("Underwater Basket Weaving", false);
@@ -82,7 +82,7 @@ public class SkillRepositoryTest {
 		assertEquals(++before, after);
 	}
 
-	@Test
+	@Test @Transactional
 	public void delete() {
 		log.info("Testing delete method from SkillDAO");
 		skillRepository.delete(skillRepository.findOne(1));
