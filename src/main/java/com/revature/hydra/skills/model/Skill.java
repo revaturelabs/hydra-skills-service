@@ -8,19 +8,20 @@ import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Skills {
+public class Skill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer skillId;
 
     private String name;
-    private String title;
-    private String email;
 
+    @ColumnDefault("true")
+    private boolean active;
 }
