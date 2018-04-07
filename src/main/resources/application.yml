@@ -1,6 +1,37 @@
 spring:
   profiles:
-    active: skillsService
+    active: production
+
+---
+
+spring:
+  profiles: production
+  application:
+    name: skills
+  cloud:
+    services:
+      registrationMethod: direct
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+eureka:
+  client:
+    register-with-eureka: true
+    leaseRenewalIntervalInSeconds: 10
+    healthcheck:       
+      enabled: true
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 20
+
+security:
+  basic:
+    enabled: false
+
+server:
+  servlet:
+    contextPath: /v0
 
 ---
 
@@ -39,36 +70,3 @@ management:
 security:
   basic:
     enabled: false
-
----
-
-spring:
-  application:
-    name: skills
-  cloud:
-    services:
-      registrationMethod: direct
-  profiles: skillsService
-  jpa:
-    hibernate:
-      ddl-auto: update
-
-eureka:
-  client:
-    register-with-eureka: true
-    leaseRenewalIntervalInSeconds: 10
-    healthcheck:       
-      enabled: true
-  instance:
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 20
-
-security:
-  basic:
-    enabled: false
-
-server:
-  servlet:
-    contextPath: /v0
-
-
